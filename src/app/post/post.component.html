@@ -1,1 +1,9 @@
-<mat-card class="mat-elevation-z0 outline post">Simple card</mat-card>
+<mat-card *ngFor="let post of posts$ | async" class="mat-elevation-z0 outline post">
+    <mat-card-title class="post__title">{{post.title}}</mat-card-title>
+    <mat-card-content>
+        <p>{{ post.body }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+        <a mat-stroked-button [routerLink]="['/post/11']">Open</a>
+    </mat-card-actions>
+</mat-card>

@@ -1,0 +1,8 @@
+<mat-card *ngIf="post$ | async as post;" class="mat-elevation-z0 outline post">
+    <mat-card-title class="post__title">{{post.title}}</mat-card-title>
+    <mat-card-content>
+        <p>{{ post.body }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+    </mat-card-actions>
+</mat-card>

@@ -4,8 +4,12 @@ import { loadPostsSuccess } from './post.actions';
 
 export const postFeatureKey = 'post';
 
+export interface Post {
+  id: number;
+}
+
 export interface StatePost {
-  posts: any[];
+  posts: Post[];
 }
 
 export const initialState: StatePost = {
