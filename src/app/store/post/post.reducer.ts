@@ -6,6 +6,8 @@ export const postFeatureKey = 'post';
 
 export interface Post {
   id: number;
+  title: string;
+  body: string;
 }
 
 export interface StatePost {

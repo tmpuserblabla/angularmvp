@@ -8,11 +8,11 @@ import { loadPosts } from '@/store/post/post.actions';
 import { map } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-post',
+  selector: 'app-post-screen',
   templateUrl: './post.component.html',
   styleUrls: ['./post.component.scss']
 })
-export class PostComponent implements OnInit {
+export class PostScreenComponent implements OnInit {
   postState$: Observable<StatePost>;
   posts$: Observable<any[]>;
 
