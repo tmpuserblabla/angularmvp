@@ -14,12 +14,14 @@ import { EffectsModule } from '@ngrx/effects';
 import { MaterialModule } from '@/modules/material/material.module';
 import { CommonModule } from '@angular/common';
 import { PostComponent } from '@/components/post/post.component';
+import { CommentComponent } from '@/components/comment/comment.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PostComponent,
-    RoutingComponents
+    RoutingComponents,
+    CommentComponent
   ],
   imports: [
     CommonModule,

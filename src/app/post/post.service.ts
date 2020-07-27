@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { PostModule } from './post.module';
-import { ApiService } from '../api/api.service';
+import { ApiService } from '@/api/api.service';
 import { Observable } from 'rxjs';
 
 @Injectable({
