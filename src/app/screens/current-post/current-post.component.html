@@ -1,8 +1,4 @@
-<mat-card *ngIf="post$ | async as post;" class="mat-elevation-z0 outline post">
-    <mat-card-title class="post__title">{{post.title}}</mat-card-title>
-    <mat-card-content>
-        <p>{{ post.body }}</p>
-    </mat-card-content>
-    <mat-card-actions>
-    </mat-card-actions>
-</mat-card>
+<div class="current-post-screen">
+    <app-post *ngIf="post$ | async as post;" [post]="post"></app-post>
+    <h1>Commets</h1>
+</div>

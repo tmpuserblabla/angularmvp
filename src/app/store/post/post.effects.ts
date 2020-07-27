@@ -9,10 +9,15 @@ import { of } from 'rxjs';
 
 @Injectable()
 export class PostEffects {
+  constructor(
+    private actions$: Actions,
+    private postService: PostService
+  ) {}
+
   loadPosts$ = createEffect(() => {
     return this.actions$.pipe(
       ofType(PostActions.loadPosts),
-      exhaustMap(action => {
+      exhaustMap((_) => {
           return this.postService.loadPosts().pipe(
             map((data) => {
               return PostActions.loadPostsSuccess({ data });
@@ -24,8 +29,19 @@ export class PostEffects {
     );
   });
 
-  constructor(
-    private actions$: Actions,
-    private postService: PostService
-  ) {}
+  loadPostById$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(PostActions.loadPostById),
+      exhaustMap((action) => {
+          return this.postService.loadPostById(action.postId).pipe(
+            map((post) => {
+              return PostActions.addPostByIdSuccess({ post });
+            }),
+            catchError(error => of(error))
+          );
+        }
+      )
+    );
+  });
+
 }

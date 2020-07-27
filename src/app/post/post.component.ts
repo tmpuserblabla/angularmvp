@@ -26,7 +26,7 @@ export class PostScreenComponent implements OnInit {
   ngOnInit(): void {
     this.store.dispatch(loadPosts());
 
-    this.posts$ =  this.postState$.pipe(map(({ posts }) => {
+    this.posts$ = this.postState$.pipe(map(({ posts }) => {
       return posts;
     }));
   }

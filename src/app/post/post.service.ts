@@ -12,4 +12,8 @@ export class PostService {
   loadPosts(): Observable<any> {
     return this.api.get('/posts');
   }
+
+  loadPostById(postId: number): Observable<any> {
+    return this.api.get(`/posts/${postId}`);
+  }
 }

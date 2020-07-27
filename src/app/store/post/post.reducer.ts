@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import { loadPostsSuccess } from './post.actions';
+import { loadPostsSuccess, addPostByIdSuccess } from './post.actions';
 
 
 export const postFeatureKey = 'post';
@@ -25,6 +25,12 @@ export const postReducer = createReducer(
     return {
       ...state,
       posts: data
+    };
+  }),
+  on(addPostByIdSuccess, (state, { post }) => {
+    return {
+      ...state,
+      posts: [...state.posts, post]
     };
   }),
 );
