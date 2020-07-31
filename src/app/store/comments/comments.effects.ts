@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, exhaustMap, map } from 'rxjs/operators';
 import * as commentsActions from './comments.actions';
-import { CommentsService } from '@/services/comments.service';
+import { CommentsService } from '@/services/comments/comments.service';
 import { of } from 'rxjs';
 
 

@@ -1,10 +1,13 @@
 <div class="current-post-screen">
     <app-post *ngIf="post$ | async as post" [post]="post"></app-post>
     <h1>Commets</h1>
-    <mat-list role="list" *ngIf="comments$ | async as comments">
-        <app-comment
-            *ngFor="let comment of comments"
-            [comment]="comment"
-        ></app-comment>
-    </mat-list>
+    <mat-card class="commets-list">
+        <mat-list role="list" *ngIf="comments$ | async as comments">
+            <app-comment
+                class="commets-list__item"
+                *ngFor="let comment of comments"
+                [comment]="comment"
+            ></app-comment>
+        </mat-list>
+    </mat-card>
 </div>

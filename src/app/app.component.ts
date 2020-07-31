@@ -6,5 +6,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'tmp';
+  links = [
+    {
+      label: 'Posts',
+      link: '',
+    },
+    {
+      label: 'Guest Book',
+      link: 'guest-book',
+    },
+  ];
+
+  activeLink = this.links[0];
 }

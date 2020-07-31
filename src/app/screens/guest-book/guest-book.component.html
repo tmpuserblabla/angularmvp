@@ -1,0 +1,51 @@
+<div class="guest-book-screen">
+    <div class="guest-view">
+        <div>
+            <mat-card class="add-author">
+                <mat-card-header>
+                    <mat-card-title>Add Author</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <form class="add-author-form" [formGroup]="authorForm" (ngSubmit)="addAuthor()">
+                        <div class="add-author-form__fields">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Full name</mat-label>
+                                <input formControlName="fullName" type="text" required matInput>
+                                <mat-hint>Enter your full name</mat-hint>
+                            </mat-form-field>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Email</mat-label>
+                                <input formControlName="email" type="email" required matInput>
+                                <mat-hint>Enter your email</mat-hint>
+                            </mat-form-field>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Message</mat-label>
+                                <textarea formControlName="message" minlength="20" required matInput></textarea>
+                                <mat-hint>Enter something...</mat-hint>
+                            </mat-form-field>
+                        </div>
+                        <button class='add-author-form__button' mat-stroked-button color="primary">Send</button>
+                    </form>
+                </mat-card-content>
+            </mat-card>
+        </div>
+        <mat-accordion class="add-author__accordion" multi>
+            <mat-expansion-panel
+                class="add-author__expansion-item"
+                *ngFor="let guest of guests$ | async"
+            >
+              <mat-expansion-panel-header class="guest">
+                    <mat-panel-title>
+                    {{ guest.name }}
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        {{ guest.email }}
+                        <mat-icon>
+                            <img class="guest__avatar" [src]="guest.avatar" />
+                        </mat-icon>
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </div>
+</div>

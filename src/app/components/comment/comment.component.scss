@@ -1,3 +1,13 @@
 .comment {
-    transform: scale(.8);
+    &__title, &__subtitle {
+        margin: 0;
+    }
+
+    &__subtitle {
+        color: #9c9c9c;
+    }
+
+    &__body {
+        margin-top: 10px;
+    }
 }

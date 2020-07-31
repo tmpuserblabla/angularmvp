@@ -21,7 +21,7 @@ import { CommentComponent } from '@/components/comment/comment.component';
     AppComponent,
     PostComponent,
     RoutingComponents,
-    CommentComponent
+    CommentComponent,
   ],
   imports: [
     CommonModule,

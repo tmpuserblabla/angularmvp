@@ -1,0 +1,47 @@
+.guest-book-screen {
+    display: grid;
+    margin: 25px auto;
+    grid-template-columns: .5fr 1fr .5fr;
+}
+
+.guest-view {
+    grid-column: 2 / 2;
+    display: flex;
+}
+
+.add-author {
+    position: sticky;
+    top: 58px;
+    margin-right: 25px;
+
+    &__accordion {
+        width: 500px;
+        position: relative;
+    }
+
+    &__expansion-item {
+        width: 100%;
+    }
+}
+
+.add-author-form {
+    &__fields {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__button {
+        margin: 0 auto;
+        display: block;
+    }
+}
+
+.guest {
+    &__avatar {
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        right: 50px;
+        position: absolute;
+    }
+}

@@ -1,7 +1,5 @@
-<mat-card class="comment mat-elevation-z0 outline">
-    <mat-card-title>{{ comment.name }}</mat-card-title>
-    <mat-card-subtitle>{{ comment.email }}</mat-card-subtitle>
-    <mat-card-content>
-      <p>{{ comment.body }}</p>
-    </mat-card-content>
-</mat-card>
+<div class="comment">
+    <h3 class="mat-h3 comment__title">{{ comment.name }}</h3>
+    <h5 class="mat-h5 comment__subtitle">{{ comment.email }}</h5>
+    <p class="mat-body comment__body">{{ comment.body }}</p>
+</div>
