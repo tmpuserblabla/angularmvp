@@ -1,0 +1,16 @@
+.post-screen {
+    display: grid;
+    margin: 25px auto;
+    grid-template-columns: 0.5fr 1fr 0.5fr;
+}
+
+.post-view {
+    grid-column: 2/2;
+    display: flex;
+
+    &__sort {
+        position: sticky;
+        top: 58px;
+        margin-right: 25px;
+    }
+}

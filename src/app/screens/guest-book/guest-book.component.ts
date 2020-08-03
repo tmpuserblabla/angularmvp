@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { State } from '@/store';
-import { loadGuests } from '@/store/guests/guests.actions';
+import { loadGuests, addAuthor } from '@/store/guests/guests.actions';
 import { Observable } from 'rxjs';
 import { Guest } from '@/store/guests/guests.reducer';
 import { map } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-guest-book',
@@ -17,7 +18,7 @@ export class GuestBookComponent implements OnInit {
 
   authorForm = new FormGroup({
     fullName: new FormControl(''),
-    email: new FormControl(''),
+    email: new FormControl('', [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$')]),
     message: new FormControl(''),
   });
 
@@ -27,14 +28,23 @@ export class GuestBookComponent implements OnInit {
 
 
   addAuthor(): void {
-    const { value } = this.authorForm;
-    // this.api.post('/users', {
-    //   name: value.fullName,
-    //   email: value.email,
-    //   message: value.message
-    // }).subscribe(() => {
-    //   this.authorForm.reset();
-    // });
+    const { value, valid } = this.authorForm;
+
+    if (!valid) {
+      return;
+    }
+
+    this.store.dispatch(
+      addAuthor({
+        data: {
+          name: value.fullName,
+          email: value.email,
+          message: value.message
+        }
+      })
+    );
+
+    this.authorForm.reset();
   }
 
   ngOnInit(): void {

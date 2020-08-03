@@ -45,3 +45,16 @@
         position: absolute;
     }
 }
+
+.guest-info {
+    &__item {
+        display: flex;
+        align-items: center;
+        word-break: break-word;
+    }
+
+    &__item-icon {
+        align-self: flex-start;
+        margin-right: 4px;
+    }
+}

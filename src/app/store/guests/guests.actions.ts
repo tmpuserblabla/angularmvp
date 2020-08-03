@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { Guest } from './guests.reducer';
+import { Guest, PayloadAddAuthor } from './guests.reducer';
 
 export const loadGuests = createAction(
   '[Guests] Load Guests'
@@ -17,12 +17,12 @@ export const loadGuestsFailure = createAction(
 
 export const addAuthor = createAction(
   '[Guests] Add Author',
-  props<{ author: Guest }>()
+  props<{data: PayloadAddAuthor}>()
 );
 
 export const addAuthorSuccess = createAction(
   '[Guests] Add Author Success',
-  props<{ guests: Guest[] }>()
+  props<{ guest: Guest }>()
 );
 
 export const addAuthorFailure = createAction(

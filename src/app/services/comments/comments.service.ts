@@ -9,6 +9,6 @@ export class CommentsService {
   constructor(private api: ApiService) { }
 
   loadCommentsByPostId(postId: number): Observable<any> {
-    return this.api.get(`/posts/${postId}/comments`);
+    return this.api.get(`/posts/${postId}/comments?sort=desc`);
   }
 }

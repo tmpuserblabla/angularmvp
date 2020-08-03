@@ -10,7 +10,7 @@ export class PostService {
   constructor(private api: ApiService) { }
 
   loadPosts(): Observable<any> {
-    return this.api.get('/posts');
+    return this.api.get('/posts?sort=desc');
   }
 
   loadPostById(postId: number): Observable<any> {

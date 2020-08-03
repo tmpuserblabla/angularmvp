@@ -39,12 +39,31 @@
                     {{ guest.name }}
                     </mat-panel-title>
                     <mat-panel-description>
-                        {{ guest.email }}
-                        <mat-icon>
-                            <img class="guest__avatar" [src]="guest.avatar" />
-                        </mat-icon>
+                        <img class="guest__avatar" [src]="guest.avatar" />
                     </mat-panel-description>
                 </mat-expansion-panel-header>
+                <div class="guest-info">
+                    <p *ngIf="guest.email" class="guest-info__item">
+                        <mat-icon class="guest-info__item-icon" aria-label="alternate_email icon">alternate_email</mat-icon>
+                        {{ guest.email }}
+                    </p>
+                    <p *ngIf="guest.message" class="guest-info__item">
+                        <mat-icon class="guest-info__item-icon" aria-label="format_quote icon">format_quote</mat-icon>
+                        {{ guest.message }}
+                    </p>
+                    <p *ngIf="guest.username" class="guest-info__item">
+                        <mat-icon class="guest-info__item-icon" aria-label="face icon">face</mat-icon>
+                        {{ guest.username }}
+                    </p>
+                    <p *ngIf="guest.phone" class="guest-info__item">
+                        <mat-icon class="guest-info__item-icon" aria-label="phone icon">phone</mat-icon>
+                        {{ guest.phone }}
+                    </p>
+                    <p *ngIf="guest.website" class="guest-info__item">
+                        <mat-icon class="guest-info__item-icon" aria-label="website icon">language</mat-icon>
+                        {{ guest.website }}
+                    </p>
+                </div>
             </mat-expansion-panel>
         </mat-accordion>
     </div>

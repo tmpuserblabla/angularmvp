@@ -1,8 +1,24 @@
-<app-post
-    *ngFor="let post of posts$ | async"
-    [post]="post"
->
-    <mat-card-actions class="footer">
-        <a mat-stroked-button [routerLink]="['/post/' + post.id]">Open</a>
-    </mat-card-actions>
-</app-post>
+<div class="post-screen">
+    <div class="post-view">
+        <div>
+            <mat-form-field class="post-view__sort" appearance="outline">
+                <mat-label>Sort</mat-label>
+                <mat-select [(ngModel)]="selectedSortType" name="sort">
+                    <mat-option *ngFor="let item of sortList" [value]="item.value">
+                        {{item.label}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="post-list">
+            <app-post
+                *ngFor="let post of posts$ | async"
+                [post]="post"
+            >
+                <mat-card-actions class="footer">
+                    <a mat-stroked-button [routerLink]="['/post/' + post.id]">Open</a>
+                </mat-card-actions>
+            </app-post>
+        </div>
+    </div>
+</div>

@@ -24,4 +24,16 @@ export class GuestsEffects {
       })
     );
   });
+
+  addAuthor$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(guestsActions.addAuthor),
+      exhaustMap(({ data }) => {
+        return this.guestsService.addAuthor(data).pipe(
+          map((guest) => guestsActions.addAuthorSuccess({ guest })),
+          catchError(error => of(guestsActions.addAuthorFailure({ error })))
+        );
+      })
+    );
+  });
 }
