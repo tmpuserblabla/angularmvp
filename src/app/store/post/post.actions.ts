@@ -25,3 +25,8 @@ export const addPostByIdSuccess = createAction(
   '[Post] Load Post By Id Success',
   props<{ post: Post }>()
 );
+
+export const setRatingOfPostSuccess = createAction(
+  '[Post] Set Rating Of Post Success',
+  props<{ postId: number, stars: number }>()
+);

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { PostScreenComponent } from '@/post/post.component';
+import { PostScreenComponent } from '@/screens/post-list/post.component';
 import { CurrentPostComponent } from '@/screens/current-post/current-post.component';
 import { GuestBookComponent } from '@/screens/guest-book/guest-book.component';
 

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { State } from '@/store';
-import { Post } from '@/store/post/post.reducer';
+import { Post, RatingOfPost } from '@/store/post/post.reducer';
 import { selectPostById } from '@/store/post/post.selectors';
-import { loadPostById } from '@/store/post/post.actions';
+import { loadPostById, setRatingOfPostSuccess } from '@/store/post/post.actions';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { tap, exhaustMap, map } from 'rxjs/operators';
@@ -23,6 +23,10 @@ export class CurrentPostComponent implements OnInit {
     private store: Store<State>,
     private route: ActivatedRoute
   ) {}
+
+  onRatingChanged({ postId, stars }: RatingOfPost): void {
+    this.store.dispatch(setRatingOfPostSuccess({ postId, stars }));
+  }
 
   ngOnInit(): void {
     this.post$ = this.route.params.pipe(exhaustMap(({ id }) => {

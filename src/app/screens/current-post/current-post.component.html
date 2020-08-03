@@ -1,5 +1,11 @@
 <div class="current-post-screen">
-    <app-post *ngIf="post$ | async as post" [post]="post"></app-post>
+    <app-post
+        *ngIf="post$ | async as post"
+        [post]="post"
+        [rating]="post.stars"
+        (ratingUpdated)="onRatingChanged($event)"
+    >
+    </app-post>
     <h1>Commets</h1>
     <mat-card class="commets-list">
         <mat-list role="list" *ngIf="comments$ | async as comments">

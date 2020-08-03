@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { State } from '@/store';
 import { Observable } from 'rxjs';
-import { StatePost } from '@/store/post/post.reducer';
-import { loadPosts } from '@/store/post/post.actions';
+import { StatePost, RatingOfPost } from '@/store/post/post.reducer';
+import { loadPosts, setRatingOfPostSuccess } from '@/store/post/post.actions';
 import { map } from 'rxjs/operators';
 import { selectPostsAsc, selectPostsDesc } from '@/store/post/post.selectors';
 
@@ -39,6 +39,10 @@ export class PostScreenComponent implements OnInit {
     } else {
       return this.postState$.pipe(select(selectPostsDesc));
     }
+  }
+
+  onRatingChanged({ postId, stars }: RatingOfPost): void {
+    this.store.dispatch(setRatingOfPostSuccess({ postId, stars }));
   }
 
   ngOnInit(): void {

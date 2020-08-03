@@ -14,6 +14,8 @@
             <app-post
                 *ngFor="let post of posts$ | async"
                 [post]="post"
+                [rating]="post.stars"
+                (ratingUpdated)="onRatingChanged($event)"
             >
                 <mat-card-actions class="footer">
                     <a mat-stroked-button [routerLink]="['/post/' + post.id]">Open</a>

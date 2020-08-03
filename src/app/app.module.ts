@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule, RoutingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { PostModule } from '@/post/post.module';
+import { PostModule } from '@/modules/post/post.module';
 import { ApiModule } from '@/api/api.module';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -15,6 +15,7 @@ import { MaterialModule } from '@/modules/material/material.module';
 import { CommonModule } from '@angular/common';
 import { PostComponent } from '@/components/post/post.component';
 import { CommentComponent } from '@/components/comment/comment.component';
+import { StarRatingComponent } from '@/components/star-rating/star-rating.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { CommentComponent } from '@/components/comment/comment.component';
     PostComponent,
     RoutingComponents,
     CommentComponent,
+    StarRatingComponent,
   ],
   imports: [
     CommonModule,

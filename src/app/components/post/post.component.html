@@ -4,6 +4,8 @@
         <mat-card-content>
             <p>{{ post.body }}</p>
         </mat-card-content>
+        <app-star-rating [rating]="rating" [starCount]="starCount" (ratingUpdated)="onRatingChanged(post.id, $event)"></app-star-rating>
+        <!-- <star-rating value="5" totalstars="5" checkedcolor="red" uncheckedcolor="black" size="24px" readonly="false"></star-rating> -->
         <ng-content selector=".footer"></ng-content>
     </mat-card>
 </div>

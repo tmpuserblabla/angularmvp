@@ -39,7 +39,6 @@ export const guestsReducer = createReducer(
     };
   }),
   on(addAuthorSuccess, (state, { guest }) => {
-    console.log(guest);
     return {
       ...state,
       guests: [
