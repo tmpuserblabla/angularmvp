@@ -16,6 +16,4 @@ export class AppComponent {
       link: 'guest-book',
     },
   ];
-
-  activeLink = this.links[0];
 }

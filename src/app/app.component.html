@@ -1,8 +1,14 @@
 <nav class="nav-bar" mat-tab-nav-bar mat-align-tabs="center" animationDuration="0ms">
-    <a mat-tab-link *ngFor="let link of links"
-    (click)="activeLink = link"
-    [routerLink]="link.link"
-    [active]="activeLink.link === link.link"> {{link.label}} </a>
+    <a
+        mat-tab-link
+        *ngFor="let link of links"
+        [routerLink]="link.link"
+        routerLinkActive #rla="routerLinkActive"
+        [routerLinkActiveOptions]="{ exact: true }"
+        [active]="rla.isActive"
+    >
+        {{link.label}}
+    </a>
 </nav>
 <div class="content">
     <router-outlet></router-outlet>
