@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, ExtraOptions } from '@angular/router';
 import { PostScreenComponent } from '@/screens/post-list/post.component';
 import { CurrentPostComponent } from '@/screens/current-post/current-post.component';
 import { GuestBookComponent } from '@/screens/guest-book/guest-book.component';
@@ -16,8 +16,13 @@ export const RoutingComponents = [
   GuestBookComponent,
 ];
 
+const routerOptions: ExtraOptions = {
+  useHash: true,
+  anchorScrolling: 'enabled',
+};
+
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, routerOptions)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
